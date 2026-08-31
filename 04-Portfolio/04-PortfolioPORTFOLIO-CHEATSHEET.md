@@ -1,521 +1,586 @@
-# Portfolio Learning Cheat Sheet
+# Portfolio Cheat Sheet
 
-> Personal notes for learning HTML, CSS, and Git while building my IT portfolio.
+## 🧱 HTML Basics
 
----
+### `div`
 
-## 📄 HTML Basics
-
-| Tag         | Purpose                      |
-| ----------- | ---------------------------- |
-| `<html>`    | HTML document                |
-| `<head>`    | Page information/settings    |
-| `<body>`    | Visible page content         |
-| `<section>` | Section of a webpage         |
-| `<div>`     | Container/group of content   |
-| `<span>`    | Small inline part of content |
-| `<h1>`      | Main heading                 |
-| `<p>`       | Paragraph/text               |
-| `<img>`     | Displays an image            |
-
-### Attributes
-
-```html
-class=""
-```
-
-* Name used by CSS
-* Can be reused on multiple elements
-
-```html
-id=""
-```
-
-* Unique identifier
-* Usually used for a specific element/section
-
-Example:
-
-```html
-<section id="home">
-```
+Container / box used to group different contents.
 
 ```html
 <div class="hero-container">
+    ...
+</div>
+```
+
+### `span`
+
+Targets a smaller part of content, especially text.
+
+```html
+<h1>
+    Gerald Andrei
+    <span>P. Baguisa</span>
+</h1>
+```
+
+Useful when styling only part of a text.
+
+### `section`
+
+A major section of the webpage.
+
+```html
+<section id="about">
+    ...
+</section>
+```
+
+### `header`
+
+Usually contains the website's navigation or introductory content.
+
+### `nav`
+
+Contains navigation links.
+
+### `a`
+
+Creates a clickable link.
+
+```html
+<a href="#about">About</a>
+```
+
+`#about` → goes to:
+
+```html
+<section id="about">
 ```
 
 ---
 
 # 🎨 CSS Basics
 
-## Selectors
+### Selectors
 
 ```css
-.class
+nav { }
 ```
 
-Selects elements with a specific class.
+Targets the HTML element `<nav>`.
 
 ```css
-#id
+.nav-links { }
 ```
 
-Selects an element with a specific ID.
+Targets `class="nav-links"`.
 
 ```css
-A B
+#home { }
 ```
 
-Selects `B` inside `A`.
+Targets `id="home"`.
 
-Example:
-
-```css
-.hero-container h1
-```
-
-Means:
-
-> Select the `<h1>` inside `.hero-container`.
-
----
-
-## Common Properties
-
-```css
-color: white;
-```
-
-Changes text color.
-
-```css
-background-color: black;
-```
-
-Changes background color.
-
-```css
-font-size: 65px;
-```
-
-Changes text size.
-
-```css
-font-family: sans-serif;
-```
-
-Changes the font.
-
----
-
-# 📦 Spacing
-
-### Padding
-
-```css
-padding: 20px;
-```
-
-Space **inside** the element.
+Remember:
 
 ```text
-┌──────────────────────┐
-│   ← padding →        │
-│      CONTENT         │
-│                      │
-└──────────────────────┘
+nav        → element
+.nav-links → class
+#home      → ID
 ```
-
-### Margin
-
-```css
-margin: 20px;
-```
-
-Space **outside** the element.
-
-```text
-   ← margin →
-┌──────────────┐
-│    CONTENT   │
-└──────────────┘
-```
-
-### Shorthand
-
-```css
-padding: 0 70px;
-```
-
-Means:
-
-```text
-Top:    0
-Bottom: 0
-Left:   70px
-Right:  70px
-```
-
-General rule:
-
-```css
-padding: A B;
-```
-
-* `A` = top & bottom
-* `B` = left & right
 
 ---
 
 # 📐 Flexbox
 
-```css
-display: flex;
-```
+### `display: flex`
 
-Turns an element into a **Flexbox container**.
-
-It controls how its child elements are arranged.
-
-Example:
+Turns an element into a Flexbox container.
 
 ```css
-.hero-container {
+nav {
     display: flex;
 }
 ```
 
-Changes:
+### `justify-content`
 
-```text
-TEXT
-
-IMAGE
-```
-
-into:
-
-```text
-TEXT       IMAGE
-```
-
----
-
-## Main Axis & Cross Axis
-
-```text
-MAIN AXIS
-←────────────────→
-  justify-content
-
-
-CROSS AXIS
-      ↑
-      │
-   align-items
-      │
-      ↓
-```
-
-For our current default `row` layout:
-
-```text
-justify-content → left / right
-align-items     → top / bottom
-```
-
-### Common values
+Controls spacing/alignment along the main axis.
 
 ```css
 justify-content: center;
 ```
 
-Centers items along the main axis.
-
-```css
-align-items: center;
-```
-
-Centers items along the cross axis.
+Centers content.
 
 ```css
 justify-content: space-between;
 ```
 
-Places space between the items.
+Pushes the first and last items apart.
+
+### `align-items`
+
+Controls alignment on the cross axis.
+
+```css
+align-items: center;
+```
+
+### `gap`
+
+Controls consistent spacing between Flexbox items.
+
+```css
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+```
+
+Think:
 
 ```text
-ITEM                         ITEM
-  ←────── space between ──────→
+About → Skills → Projects → Experience → Contact
+       30px      30px       30px         30px
 ```
 
 ---
 
-# 🖼️ Images
+# 📦 Spacing
 
-Our current portfolio image:
+### `padding`
+
+Space **inside** an element.
+
+```css
+padding: 20px;
+```
+
+All sides.
+
+```css
+padding: 0 70px;
+```
+
+```text
+Top/Bottom → 0
+Left/Right → 70px
+```
+
+### `margin`
+
+Space **outside** an element.
+
+```css
+margin-top: 20px;
+margin-bottom: 10px;
+```
+
+Remember:
+
+```text
+padding = inside
+margin  = outside
+```
+
+---
+
+# ✍️ Text
+
+### `font-size`
+
+```css
+font-size: 30px;
+```
+
+### `font-weight`
+
+```css
+font-weight: bold;
+```
+
+or:
+
+```css
+font-weight: 700;
+```
+
+### `line-height`
+
+Controls spacing between lines.
+
+```css
+line-height: 1.2;
+```
+
+---
+
+# 🔗 Links
+
+Remove default underline:
+
+```css
+a {
+    text-decoration: none;
+}
+```
+
+Change color:
+
+```css
+a {
+    color: white;
+}
+```
+
+---
+
+# 🖱️ Hover
+
+Changes styling when the mouse is over an element.
+
+```css
+a:hover {
+    color: yellow;
+}
+```
+
+Current portfolio idea:
+
+```text
+Normal → White
+Hover  → Yellow
+```
+
+---
+
+# ⏱️ Transition
+
+Makes changes happen smoothly.
+
+```css
+a {
+    transition: 1s;
+}
+```
+
+Example:
+
+```css
+a {
+    color: white;
+    transition: 1s;
+}
+
+a:hover {
+    color: yellow;
+}
+```
+
+---
+
+# 📌 Sticky Navbar
+
+Keeps the navbar visible while scrolling.
+
+```css
+header {
+    position: sticky;
+    top: 0;
+}
+```
+
+`top: 0` → sticks to the top of the screen.
+
+---
+
+# 🌀 Smooth Scrolling
+
+```css
+html {
+    scroll-behavior: smooth;
+}
+```
+
+Makes navigation to sections scroll smoothly instead of instantly jumping.
+
+---
+
+# 📏 Viewport Height
+
+```css
+min-height: 100vh;
+```
+
+`vh` = viewport height.
+
+```text
+100vh ≈ one full screen height
+```
+
+Useful for full-screen sections, but not every final section needs to be `100vh`.
+
+---
+
+# 🖼️ Images
 
 ```css
 .hero-image img {
     width: 400px;
     height: 450px;
     object-fit: cover;
-    border-radius: 45%;
+    border-radius: 35%;
+    border: 3.5px solid red;
 }
 ```
 
-### `width`
+### `object-fit: cover`
 
-```css
-width: 400px;
-```
-
-Controls how wide the image is.
-
-### `height`
-
-```css
-height: 450px;
-```
-
-Controls how tall the image is.
-
-### `object-fit`
-
-```css
-object-fit: cover;
-```
-
-Fills the image box while maintaining its proportions.
-
-It may crop parts of the image rather than stretch it.
+Fills the image dimensions while maintaining its proportions.
 
 ### `border-radius`
 
+Rounds the corners / changes the shape.
+
+### `border`
+
 ```css
-border-radius: 45%;
+border: 3.5px solid red;
 ```
 
-Rounds the corners/shape of the image.
+```text
+3.5px → thickness
+solid → style
+red   → color
+```
 
 ---
 
-# 🧱 Current Portfolio Structure
+# 🎯 CSS Specificity
+
+More specific selectors can override general selectors.
+
+```css
+a {
+    color: white;
+}
+
+.logo {
+    color: red;
+}
+```
+
+`.logo` is more specific than `a`.
+
+Result:
+
+```text
+Normal link → White
+Logo        → Red
+```
+
+Then:
+
+```css
+a:hover {
+    color: yellow;
+}
+```
+
+On hover:
+
+```text
+Logo → Yellow
+```
+
+---
+
+# 🧭 Current Navbar Structure
+
+```html
+<header>
+
+    <nav>
+
+        <a href="#home" class="logo">AB</a>
+
+        <div class="nav-links">
+
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+    </nav>
+
+</header>
+```
+
+Basic layout:
+
+```text
+AB                    About Skills Projects Experience Contact
+```
+
+Outer Flexbox:
+
+```css
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+```
+
+Inner Flexbox:
+
+```css
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+```
+
+---
+
+# 🎨 Portfolio Color System
+
+Current design direction:
+
+```text
+BLACK  → background / foundation
+WHITE  → main text / simplicity
+RED    → primary accent / emphasis
+YELLOW → interactive / technical accent
+```
+
+Possible future colors:
+
+```text
+GREEN → growth / success
+BLUE  → information / technical elements
+```
+
+Only introduce additional colors if they have a purpose.
+
+---
+
+# 🏗️ Portfolio Sections
 
 ```text
 HOME
-└── hero-container
-    │
-    ├── hero-text
-    │   ├── h1
-    │   │   └── span
-    │   ├── p
-    │   └── p.tagline
-    │
-    └── hero-image
-        └── img
-```
+│
+├── Name
+├── Role
+├── Tagline
+└── Image
 
-Current design:
+ABOUT
+└── Who am I?
 
-```text
-┌──────────────────────────────────────────────┐
-│                                              │
-│   GERALD ANDREI                 ┌─────────┐ │
-│   P. BAGUISA                    │         │ │
-│                                 │  PHOTO  │ │
-│   IT Student                    │         │ │
-│                                 └─────────┘ │
-│   LEARN · BUILD · GROW                     │
-│                                              │
-└──────────────────────────────────────────────┘
-```
+SKILLS
+├── Tech Stack
+├── What I'm proficient in
+└── What I'm currently exploring
 
-### Current color palette
+PROJECTS
+└── What I built
 
-```text
-BLACK
-WHITE
-RED
+EXPERIENCE
+└── What I do / have done
+
+CONTACT
+└── Where people can reach me
 ```
 
 ---
 
-# 🔀 Git Basics
+# 💻 Git Cheat Sheet
 
-## Check repository
+### Check changes
 
 ```bash
 git status
 ```
 
-Shows:
-
-* Current branch
-* Changed files
-* Untracked files
-* Staged changes
-* Whether the working tree is clean
-
----
-
-## Stage changes
+### Stage changes
 
 ```bash
 git add .
 ```
 
-Stages all changes in the current repository.
+`.` → adds all changes.
 
-Or stage a specific file/folder:
-
-```bash
-git add 04-Portfolio/
-```
-
-Think:
-
-> **"Prepare these changes for my next commit."**
-
----
-
-## Commit
+### Commit
 
 ```bash
-git commit -m "Create initial portfolio"
+git commit -m "Describe changes"
 ```
 
-Creates a snapshot of the staged changes in **local Git history**.
+Commit = saves the changes to your **local Git history**.
 
-Important:
+It does NOT automatically put them on GitHub.
 
-> A commit does NOT automatically mean the changes are on GitHub.
-
----
-
-## Pull
-
-```bash
-git pull --rebase origin main
-```
-
-Gets changes from GitHub and places your local commits on top.
-
-Useful when GitHub has changes that your local repository doesn't have.
-
----
-
-## Push
+### Push
 
 ```bash
 git push origin main
 ```
 
-Sends your local commits to GitHub.
+Push = sends your local commits to **GitHub**.
 
----
-
-# ⭐ Git Workflow
+### Normal workflow
 
 ```text
-       FILES
-         ↓
-     git add
-         ↓
-      STAGED
-         ↓
-    git commit
-         ↓
-     LOCAL GIT
-         ↓
-      git push
-         ↓
-       GITHUB
-```
-
-### If push is rejected
-
-If Git says:
-
-```text
-non-fast-forward
-```
-
-It usually means the remote repository has changes your local repository doesn't have.
-
-Typical solution:
-
-```bash
-git pull --rebase origin main
-```
-
-Then:
-
-```bash
+Edit
+ ↓
+git status
+ ↓
+git add .
+ ↓
+git commit -m "..."
+ ↓
 git push origin main
+ ↓
+GitHub
+```
+
+### If you get `non-fast-forward`
+
+Don't force push immediately.
+
+Usually the remote has changes your local branch doesn't have.
+
+Check the situation first, then:
+
+```bash
+git pull
 ```
 
 ---
 
-# 🧠 Things I Understand So Far
+# 🧠 Remember
 
-* HTML provides the **structure** of the website.
-* CSS controls the **appearance and layout**.
-* `<div>` is a general container/group.
-* `<span>` targets a smaller inline part of content.
-* `display: flex` creates a Flexbox layout.
-* `justify-content` controls the main axis.
-* `align-items` controls the cross axis.
-* `padding` creates space inside an element.
-* `margin` creates space outside an element.
-* `object-fit: cover` helps images fill their box without stretching.
-* Git `commit` saves changes locally.
-* Git `push` sends commits to GitHub.
+Don't memorize every property.
 
----
+Instead ask:
 
-# 🚧 Current Learning Progress
+```text
+What do I want to change?
+        ↓
+Which HTML element/class?
+        ↓
+Which CSS property controls it?
+        ↓
+Test it
+        ↓
+Look at the result
+        ↓
+Adjust
+```
 
-### Portfolio
-
-* [x] Create HTML structure
-* [x] Create CSS file
-* [x] Create Hero section
-* [x] Add name and tagline
-* [x] Add profile image
-* [x] Learn Flexbox basics
-* [x] Position text and image side-by-side
-* [x] Style image
-* [x] Add Hero spacing
-* [ ] Improve Hero typography
-* [ ] Learn margin vs padding in practice
-* [ ] Add navigation
-* [ ] Add About section
-* [ ] Add Projects section
-* [ ] Add Skills section
-* [ ] Add Experience section
-* [ ] Add Contact section
-* [ ] Responsive design
-* [ ] Animations
-* [ ] Final polish
-
-### Git/GitHub
-
-* [x] `git status`
-* [x] `git add`
-* [x] `git commit`
-* [x] `git pull --rebase`
-* [x] `git push`
-* [x] Successfully pushed Portfolio to GitHub
-
----
-
-## 🎯 Learning Rule
-
-> **Don't just copy code.**
->
-> Understand what each part does, change values, observe the result, and then build it yourself.
->
-> **LEARN · BUILD · GROW**
-
-
+> **Understand the code, don't just memorize the code.**
