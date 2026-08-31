@@ -1,8 +1,26 @@
-# Portfolio Cheat Sheet
+# Portfolio
 
-## 🧱 HTML Basics
+Personal portfolio website built while learning and practicing HTML & CSS.
 
-### `div`
+## Current Progress
+
+* [x] Hero section
+* [x] Navigation bar
+* [x] Flexbox layout
+* [x] Navbar hover effects
+* [x] Sticky navbar
+* [x] Smooth scrolling
+* [ ] About
+* [ ] Skills
+* [ ] Projects
+* [ ] Experience
+* [ ] Contact
+
+---
+
+# 🧱 HTML Cheat Sheet
+
+## `div`
 
 Container / box used to group different contents.
 
@@ -12,7 +30,11 @@ Container / box used to group different contents.
 </div>
 ```
 
-### `span`
+**Think:** `div` = container / box
+
+---
+
+## `span`
 
 Targets a smaller part of content, especially text.
 
@@ -25,7 +47,11 @@ Targets a smaller part of content, especially text.
 
 Useful when styling only part of a text.
 
-### `section`
+**Think:** `span` = small piece inside another element
+
+---
+
+## `section`
 
 A major section of the webpage.
 
@@ -35,15 +61,33 @@ A major section of the webpage.
 </section>
 ```
 
-### `header`
+---
 
-Usually contains the website's navigation or introductory content.
+## `header`
 
-### `nav`
+Usually contains navigation or introductory content.
+
+```html
+<header>
+    ...
+</header>
+```
+
+---
+
+## `nav`
 
 Contains navigation links.
 
-### `a`
+```html
+<nav>
+    ...
+</nav>
+```
+
+---
+
+## `a`
 
 Creates a clickable link.
 
@@ -51,7 +95,7 @@ Creates a clickable link.
 <a href="#about">About</a>
 ```
 
-`#about` → goes to:
+`href="#about"` connects to:
 
 ```html
 <section id="about">
@@ -59,27 +103,42 @@ Creates a clickable link.
 
 ---
 
-# 🎨 CSS Basics
+# 🎨 CSS Selectors
 
-### Selectors
-
-```css
-nav { }
-```
-
-Targets the HTML element `<nav>`.
+### Element
 
 ```css
-.nav-links { }
+nav {
+}
 ```
 
-Targets `class="nav-links"`.
+Targets `<nav>`.
+
+### Class
 
 ```css
-#home { }
+.nav-links {
+}
 ```
 
-Targets `id="home"`.
+Targets:
+
+```html
+class="nav-links"
+```
+
+### ID
+
+```css
+#home {
+}
+```
+
+Targets:
+
+```html
+id="home"
+```
 
 Remember:
 
@@ -93,7 +152,7 @@ nav        → element
 
 # 📐 Flexbox
 
-### `display: flex`
+## `display: flex`
 
 Turns an element into a Flexbox container.
 
@@ -103,15 +162,17 @@ nav {
 }
 ```
 
-### `justify-content`
+---
 
-Controls spacing/alignment along the main axis.
+## `justify-content`
+
+Controls positioning along the main axis.
 
 ```css
 justify-content: center;
 ```
 
-Centers content.
+Centers the content.
 
 ```css
 justify-content: space-between;
@@ -119,15 +180,27 @@ justify-content: space-between;
 
 Pushes the first and last items apart.
 
-### `align-items`
+Example:
 
-Controls alignment on the cross axis.
+```text
+AB                         Contact
+```
+
+---
+
+## `align-items`
+
+Controls alignment on the cross-axis.
 
 ```css
 align-items: center;
 ```
 
-### `gap`
+Usually centers items vertically when using a row.
+
+---
+
+## `gap`
 
 Controls consistent spacing between Flexbox items.
 
@@ -138,18 +211,11 @@ Controls consistent spacing between Flexbox items.
 }
 ```
 
-Think:
-
-```text
-About → Skills → Projects → Experience → Contact
-       30px      30px       30px         30px
-```
-
 ---
 
 # 📦 Spacing
 
-### `padding`
+## `padding`
 
 Space **inside** an element.
 
@@ -157,23 +223,25 @@ Space **inside** an element.
 padding: 20px;
 ```
 
-All sides.
-
 ```css
 padding: 0 70px;
 ```
+
+Means:
 
 ```text
 Top/Bottom → 0
 Left/Right → 70px
 ```
 
-### `margin`
+---
+
+## `margin`
 
 Space **outside** an element.
 
 ```css
-margin-top: 20px;
+margin-top: 10px;
 margin-bottom: 10px;
 ```
 
@@ -188,17 +256,21 @@ margin  = outside
 
 # ✍️ Text
 
-### `font-size`
+## `font-size`
 
 ```css
 font-size: 30px;
 ```
 
-### `font-weight`
+Changes text size.
+
+## `font-weight`
 
 ```css
 font-weight: bold;
 ```
+
+Makes text thicker.
 
 or:
 
@@ -206,7 +278,7 @@ or:
 font-weight: 700;
 ```
 
-### `line-height`
+## `line-height`
 
 Controls spacing between lines.
 
@@ -218,7 +290,7 @@ line-height: 1.2;
 
 # 🔗 Links
 
-Remove default underline:
+Remove the default underline:
 
 ```css
 a {
@@ -226,7 +298,7 @@ a {
 }
 ```
 
-Change color:
+Change the color:
 
 ```css
 a {
@@ -238,7 +310,7 @@ a {
 
 # 🖱️ Hover
 
-Changes styling when the mouse is over an element.
+`:hover` changes styling when the mouse is over an element.
 
 ```css
 a:hover {
@@ -246,7 +318,7 @@ a:hover {
 }
 ```
 
-Current portfolio idea:
+Current portfolio behavior:
 
 ```text
 Normal → White
@@ -257,7 +329,7 @@ Hover  → Yellow
 
 # ⏱️ Transition
 
-Makes changes happen smoothly.
+Makes CSS changes happen smoothly.
 
 ```css
 a {
@@ -278,6 +350,13 @@ a:hover {
 }
 ```
 
+Think:
+
+```text
+WHITE ───────────→ YELLOW
+       1 second
+```
+
 ---
 
 # 📌 Sticky Navbar
@@ -291,7 +370,13 @@ header {
 }
 ```
 
-`top: 0` → sticks to the top of the screen.
+### `position: sticky`
+
+Allows the element to stick while scrolling.
+
+### `top: 0`
+
+Keeps it at the top of the screen.
 
 ---
 
@@ -303,7 +388,19 @@ html {
 }
 ```
 
-Makes navigation to sections scroll smoothly instead of instantly jumping.
+Makes anchor navigation scroll smoothly instead of instantly jumping.
+
+Example:
+
+```html
+<a href="#skills">Skills</a>
+```
+
+connects to:
+
+```html
+<section id="skills">
+```
 
 ---
 
@@ -319,11 +416,15 @@ min-height: 100vh;
 100vh ≈ one full screen height
 ```
 
-Useful for full-screen sections, but not every final section needs to be `100vh`.
+Useful for testing full-screen sections.
+
+**Important:** Not every final portfolio section needs to be `100vh`.
 
 ---
 
 # 🖼️ Images
+
+Example:
 
 ```css
 .hero-image img {
@@ -337,7 +438,7 @@ Useful for full-screen sections, but not every final section needs to be `100vh`
 
 ### `object-fit: cover`
 
-Fills the image dimensions while maintaining its proportions.
+Makes the image fill its dimensions while maintaining its proportions.
 
 ### `border-radius`
 
@@ -348,6 +449,8 @@ Rounds the corners / changes the shape.
 ```css
 border: 3.5px solid red;
 ```
+
+Means:
 
 ```text
 3.5px → thickness
@@ -373,7 +476,7 @@ a {
 
 `.logo` is more specific than `a`.
 
-Result:
+So:
 
 ```text
 Normal link → White
@@ -420,12 +523,6 @@ Logo → Yellow
 </header>
 ```
 
-Basic layout:
-
-```text
-AB                    About Skills Projects Experience Contact
-```
-
 Outer Flexbox:
 
 ```css
@@ -445,11 +542,17 @@ Inner Flexbox:
 }
 ```
 
+Result:
+
+```text
+AB                    About Skills Projects Experience Contact
+```
+
 ---
 
 # 🎨 Portfolio Color System
 
-Current design direction:
+Current direction:
 
 ```text
 BLACK  → background / foundation
@@ -465,7 +568,7 @@ GREEN → growth / success
 BLUE  → information / technical elements
 ```
 
-Only introduce additional colors if they have a purpose.
+**Rule:** Don't add colors unless they have a purpose.
 
 ---
 
@@ -501,61 +604,85 @@ CONTACT
 
 # 💻 Git Cheat Sheet
 
-### Check changes
+## Check changes
 
 ```bash
 git status
 ```
 
-### Stage changes
+Shows changed, staged, and untracked files.
+
+---
+
+## Add changes
 
 ```bash
 git add .
 ```
 
-`.` → adds all changes.
+`.` = add all changes in the current repository.
 
-### Commit
+Specific file:
+
+```bash
+git add index.html
+```
+
+---
+
+## Commit
 
 ```bash
 git commit -m "Describe changes"
 ```
 
-Commit = saves the changes to your **local Git history**.
+Commit = save changes to your **local Git history**.
 
-It does NOT automatically put them on GitHub.
+Important:
 
-### Push
+```text
+git commit ≠ GitHub
+```
+
+---
+
+## Push
 
 ```bash
 git push origin main
 ```
 
-Push = sends your local commits to **GitHub**.
+Push = send your local commits to GitHub.
 
-### Normal workflow
+---
+
+## Normal Git Workflow
 
 ```text
-Edit
- ↓
+Edit files
+    ↓
 git status
- ↓
+    ↓
 git add .
- ↓
+    ↓
 git commit -m "..."
- ↓
+    ↓
 git push origin main
- ↓
-GitHub
+    ↓
+GitHub 🚀
 ```
 
-### If you get `non-fast-forward`
+---
 
-Don't force push immediately.
+## If `non-fast-forward` appears
 
-Usually the remote has changes your local branch doesn't have.
+Don't immediately force push.
 
-Check the situation first, then:
+It usually means the remote has changes your local branch doesn't have.
+
+Check the situation first.
+
+Usually:
 
 ```bash
 git pull
@@ -563,7 +690,7 @@ git pull
 
 ---
 
-# 🧠 Remember
+# 🧠 Learning Mindset
 
 Don't memorize every property.
 
@@ -576,7 +703,7 @@ Which HTML element/class?
         ↓
 Which CSS property controls it?
         ↓
-Test it
+Try it
         ↓
 Look at the result
         ↓
@@ -584,3 +711,22 @@ Adjust
 ```
 
 > **Understand the code, don't just memorize the code.**
+
+---
+
+# 🚀 Next Session
+
+Continue building the portfolio from the empty sections.
+
+Next major section:
+
+**About — "Who am I?"**
+
+Before coding it:
+
+1. Decide what information belongs there.
+2. Decide the visual layout.
+3. Build the HTML.
+4. Style it with CSS.
+5. Test it.
+6. Polish it.
